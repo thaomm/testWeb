@@ -5,3 +5,12 @@ img?.addEventListener('touchstart', (event) => {
         text.innerHTML = "Touched";
     }
 })
+
+if (img != null) {
+    img.ontouchstart = (event) => {
+        let text = document.getElementById("text");
+        if (text != null) {
+            text.innerHTML = "Touched 1";
+        }
+    }
+}
