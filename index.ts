@@ -1,16 +1,10 @@
 let img = document.getElementById("image");
-img?.addEventListener('touchstart', (event) => {
-    let text = document.getElementById("text");
-    if (text != null) {
-        text.innerHTML = "Touched";
-    }
-})
-
 if (img != null) {
-    img.ontouchstart = (event) => {
+    img.addEventListener('contextmenu', (event) => {
         let text = document.getElementById("text");
         if (text != null) {
-            text.innerHTML = "Touched 1";
+            text.innerHTML = "Touched";
         }
-    }
+    })
 }
+
