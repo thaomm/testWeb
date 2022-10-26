@@ -1,0 +1,31 @@
+<img id="image" src="omg.png" />
+<!-- <script src="index.ts"></script> -->
+<div id="text">Test touch</div>
+<script>
+    let longTouch = 0;
+    let touchDuration = 0;
+    let interval;
+    let img = document.getElementById("image");
+    let text = document.getElementById("text");
+    if (img != null) {
+        img.addEventListener('touchstart', (event) => {
+            touchDuration = 0;
+            interval = setInterval(function () {
+                longTouch++;
+                if (text != null) {
+                    text.innerHTML = "Touching: " + longTouch;
+                }
+            }, 500);
+        }, true)
+        img.addEventListener('touchend', (event) => {
+            touchDuration = longTouch;
+            clearInterval(interval);
+            longTouch = 0;
+        }, true)
+        if (text != null) {
+            if (touchDuration >= 3) {
+                text.innerHTML = "Long touch";
+            }
+        }
+    }
+</script>
