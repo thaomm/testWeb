@@ -16,7 +16,7 @@
                     text.innerHTML = "Touching: " + longTouch;
                 }
             }, 500);
-        })
+        }, true)
         img.addEventListener('touchend', (event) => {
             touchDuration = longTouch;
             clearInterval(interval);
@@ -29,6 +29,6 @@
                     text.innerHTML = "Short touch: " + touchDuration;
                 }
             }
-        })
+        }, true)
     }
 </script>
