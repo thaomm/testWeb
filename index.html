@@ -8,7 +8,27 @@
     let img = document.getElementById("image");
     let text = document.getElementById("text");
     if (img != null) {
-        img.addEventListener('touchstart', (event) => {
+        // img.addEventListener('touchstart', (event) => {
+        //     touchDuration = 0;
+        //     interval = setInterval(function () {
+        //         longTouch++;
+        //         if (text != null) {
+        //             text.innerHTML = "Touching: " + longTouch;
+        //         }
+        //     }, 500);
+        // }, true)
+        // img.addEventListener('touchend', (event) => {
+        //     touchDuration = longTouch;
+        //     clearInterval(interval);
+        //     longTouch = 0;
+        //     if (text != null) {
+        //         if (touchDuration >= 3) {
+        //             text.innerHTML = "Long touch";
+        //         }
+        //     }
+        // }, true)
+
+        img.ontouchstart = () => {
             touchDuration = 0;
             interval = setInterval(function () {
                 longTouch++;
@@ -16,8 +36,9 @@
                     text.innerHTML = "Touching: " + longTouch;
                 }
             }, 500);
-        }, true)
-        img.addEventListener('touchend', (event) => {
+        }
+
+        img.ontouchcancel = () => {
             touchDuration = longTouch;
             clearInterval(interval);
             longTouch = 0;
@@ -26,7 +47,6 @@
                     text.innerHTML = "Long touch";
                 }
             }
-        }, true)
-
+        }
     }
 </script>
