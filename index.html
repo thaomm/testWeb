@@ -1,10 +1,10 @@
 <img id="image" src="omg.png" />
-<script src="index.ts"></script>
+<!-- <script src="index.ts"></script> -->
 <div id="text">Test touch</div>
 <script>
     let img = document.getElementById("image");
     if (img != null) {
-        img.addEventListener('contextmenu', (event) => {
+        img.addEventListener('touchstart', (event) => {
             let text = document.getElementById("text");
             if (text != null) {
                 text.innerHTML = "Touched";
