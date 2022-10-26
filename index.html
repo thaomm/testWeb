@@ -10,7 +10,6 @@
     if (img != null) {
         img.addEventListener('touchstart', (event) => {
             touchDuration = 0;
-
             interval = setInterval(function () {
                 longTouch++;
                 if (text != null) {
@@ -22,15 +21,14 @@
             touchDuration = longTouch;
             clearInterval(interval);
             longTouch = 0;
+            if (text != null) {
+                if (touchDuration >= 3) {
+                    text.innerHTML = "Long touch: " + touchDuration;
+                }
+                else {
+                    text.innerHTML = "Short touch: " + touchDuration;
+                }
+            }
         })
-
-        if (text != null) {
-            if (touchDuration >= 3) {
-                text.innerHTML = "Long touch: " + touchDuration;
-            }
-            else {
-                text.innerHTML = "Short touch: " + touchDuration;
-            }
-        }
     }
 </script>
