@@ -21,11 +21,12 @@
             touchDuration = longTouch;
             clearInterval(interval);
             longTouch = 0;
-        }, true)
-        if (text != null) {
-            if (touchDuration >= 3) {
-                text.innerHTML = "Long touch";
+            if (text != null) {
+                if (touchDuration >= 3) {
+                    text.innerHTML = "Long touch";
+                }
             }
-        }
+        }, true)
+
     }
 </script>
