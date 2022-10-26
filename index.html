@@ -10,11 +10,12 @@
     if (img != null) {
         img.addEventListener('touchstart', (event) => {
             touchDuration = 0;
-            if (text != null) {
-                text.innerHTML = "Touch start";
-            }
+
             interval = setInterval(function () {
                 longTouch++;
+                if (text != null) {
+                    text.innerHTML = "Touch start: " + longTouch;
+                }
             }, 500);
         })
         img.addEventListener('touchend', (event) => {
