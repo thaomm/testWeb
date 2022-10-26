@@ -9,6 +9,7 @@
     let text = document.getElementById("text");
     if (img != null) {
         img.addEventListener('touchstart', (event) => {
+            touchDuration = 0;
             if (text != null) {
                 text.innerHTML = "Touch start";
             }
@@ -20,15 +21,15 @@
             touchDuration = longTouch;
             clearInterval(interval);
             longTouch = 0;
-
-            if (text != null) {
-                if (touchDuration >= 3) {
-                    text.innerHTML = "Long touch: " + touchDuration;
-                }
-                else {
-                    text.innerHTML = "Short touch: " + touchDuration;
-                }
-            }
         })
+
+        if (text != null) {
+            if (touchDuration >= 3) {
+                text.innerHTML = "Long touch: " + touchDuration;
+            }
+            else {
+                text.innerHTML = "Short touch: " + touchDuration;
+            }
+        }
     }
 </script>
