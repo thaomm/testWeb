@@ -2,12 +2,32 @@
 <!-- <script src="index.ts"></script> -->
 <div id="text">Test touch</div>
 <script>
+    let longTouch = 0;
+    let touchDuration = 0;
+    let interval;
     let img = document.getElementById("image");
+    let text = document.getElementById("text");
     if (img != null) {
         img.addEventListener('touchstart', (event) => {
-            let text = document.getElementById("text");
             if (text != null) {
-                text.innerHTML = "Touched";
+                text.innerHTML = "Touch start";
+            }
+            interval = setInterval(function () {
+                longTouch++;
+            }, 500);
+        })
+        img.addEventListener('touchend', (event) => {
+            touchDuration = longTouch;
+            clearInterval(interval);
+            longTouch = 0;
+
+            if (text != null) {
+                if (touchDuration >= 3) {
+                    text.innerHTML = "Long touch: " + touchDuration;
+                }
+                else {
+                    text.innerHTML = "Short touch: " + touchDuration;
+                }
             }
         })
     }
